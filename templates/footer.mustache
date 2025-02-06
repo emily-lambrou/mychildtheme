@@ -1,0 +1,232 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_mychildtheme/footer
+
+    Page footer.
+
+    Example context (json):
+    {
+        "output": {
+            "page_doc_link": "Help and documentation",
+            "supportemail": "<a href=\"#\">Contact site support</a>",
+            "has_popover_links": true,
+            "services_support": "Services and support",
+            "login_info": "You are logged in as cute kitten",
+            "moodle_release": "90210"
+        }
+    }
+}}
+<footer id="page-footer">
+    <div class="moove-container-fluid footer-columns">
+        <div class="row">
+            <div class="col-md-4 column-left mt-4">
+                <div class="contact">
+                    <h3 class="footer-title">{{#str}}contactus, theme_mychildtheme{{/str}}</h3>
+
+                    <ul class="pl-0">
+                        {{#website}}
+                            <li class="d-flex mx-auto">
+                                <a href="{{{website}}}" target="_blank" class="website btn btn-link d-flex mx-auto mx-md-0 align-items-center pl-0">
+                                    <i class="fa fa-globe mr-2"></i>
+                                    {{{website}}}
+                                </a>
+                            </li>
+                        {{/website}}
+                        {{#mobile}}
+                            <li class="d-flex mx-auto">
+                                <a href="tel:{{{mobile}}}" target="_blank" class="mobile btn btn-link d-flex mx-auto mx-md-0 align-items-center pl-0">
+                                    <i class="fa fa-phone mr-2"></i>{{{mobile}}}
+                                </a>
+                            </li>
+                        {{/mobile}}
+                        {{#mail}}
+                            <li class="d-flex mx-auto">
+                                <a href="mailto:{{{mail}}}" target="_blank" class="mail btn btn-link d-flex mx-auto mx-md-0 align-items-center pl-0">
+                                    <i class="fa fa-envelope mr-2"></i>{{{mail}}}
+                                </a>
+                            </li>
+                        {{/mail}}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 column-right mt-4">
+                <div class="socialnetworks">
+                    <h3 class="footer-title">{{#str}}followus, theme_mychildtheme{{/str}}</h3>
+
+                    <ul class="mb-0 d-flex mx-auto pl-0">
+                        {{#facebook}}
+                            <li>
+                                <a href="{{{facebook}}}" target="_blank" class="facebook btn btn-link btn-rounded ">
+                                    <img src="https://cdn-unisis.unicaf.org/front/img/icons/social/svg/facebook-black.svg" alt="Facebook">
+                                </a>
+                            </li>
+                        {{/facebook}}
+                        {{#linkedin}}
+                            <li>
+                                <a href="{{{linkedin}}}" target="_blank" class="linkedin btn btn-link btn-rounded">
+                                    <img src="https://cdn-unisis.unicaf.org/front/img/icons/social/svg/linkedin-black.svg" alt="LinkedIn">
+                                </a>
+                            </li>
+                        {{/linkedin}}
+
+                        {{#youtube}}
+                            <li>
+                                <a href="{{{youtube}}}" target="_blank" class="youtube btn btn-link btn-rounded">
+                                    <img src="https://cdn-unisis.unicaf.org/front/img/icons/social/svg/youtube-black.svg" alt="YouTube">
+                                </a>
+                            </li>
+                        {{/youtube}}
+
+                        {{#instagram}}
+                            <li>
+                                <a href="{{{instagram}}}" target="_blank" class="instagram btn btn-link btn-rounded">
+                                    <img src="https://cdn-unisis.unicaf.org/front/img/icons/social/svg/instagram-black.svg" alt="Instagram">
+                                </a>
+                            </li>
+                        {{/instagram}}
+
+                        {{#tiktok}}
+                             <li>
+                                 <a href="{{{tiktok}}}" target="_blank" class="tiktok btn btn-link btn-rounded">
+                                     <img src="https://cdn-unisis.unicaf.org/front/img/icons/social/svg/tik-tok-black.svg" alt="TikTok">
+                                 </a>
+                             </li>
+                        {{/tiktok}}
+                        {{#twitter}}
+                             <li>
+                                 <a href="{{{twitter}}}" target="_blank" class="x btn btn-link btn-rounded">
+                                     <img src="https://cdn-unisis.unicaf.org/front/img/icons/social/svg/x-black.svg" alt="X (Twitter)">
+                                 </a>
+                             </li>
+                        {{/twitter}}
+                    </ul>
+                </div>
+                {{#enablemobilewebservice}}
+                    {{#mobilesetuplink}}
+                        <a href="{{{mobilesetuplink}}}">{{#str}}getmoodleonyourmobile, tool_mobile{{/str}}</a>
+                    {{/mobilesetuplink}}
+                    {{^mobilesetuplink}}
+                        <h3 class="footer-title">{{#str}}getmoodleonyourmobile, tool_mobile{{/str}}</h3>
+                    {{/mobilesetuplink}}
+                    <div class="stores mt-2">
+                        {{#androidappid}}
+                            <a href="https://play.google.com/store/apps/details?id={{androidappid}}">
+                                <img src="{{config.wwwroot}}/theme/moove/pix/store_google_black.png" alt="Play Store">
+                            </a>
+                        {{/androidappid}}
+                        {{#iosappid}}
+                            <a class="mt-1" href="https://apps.apple.com/app/id{{iosappid}}">
+                                <img src="{{config.wwwroot}}/theme/moove/pix/store_apple_black.svg" alt="App Store">
+                            </a>
+                        {{/iosappid}}
+                    </div>
+                {{/enablemobilewebservice}}
+            </div>
+            <div class="col-md-4 column-center mt-4">
+<!--                {{# output.supportemail }}-->
+<!--                    <div class="supportemail">{{{ output.supportemail }}}</div>-->
+<!--                {{/ output.supportemail }}-->
+
+                {{{ output.login_info }}}
+
+                <!--                {{{ output.standard_footer_html }}}-->
+
+                <div class="tool_usertours-resettourcontainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-content-debugging footer-dark bg-dark text-light">
+        <div class="moove-container-fluid footer-dark-inner">
+            {{{ output.debug_footer_html }}}
+        </div>
+    </div>
+
+<!--    <div data-region="footer-container-popover">-->
+<!--        <button class="btn btn-icon bg-secondary icon-no-margin btn-footer-popover" data-action="footer-popover" aria-label="{{#str}}showfooter, theme_boost{{/str}}">-->
+<!--            {{#pix}}e/question, core{{/pix}}-->
+<!--        </button>-->
+<!--    </div>-->
+<!--    <div class="footer-content-popover container" data-region="footer-content-popover">-->
+<!--        {{# output.has_popover_links }}-->
+<!--            <div class="footer-section p-3 border-bottom">-->
+<!--                {{# output.page_doc_link }}-->
+<!--                    <div>{{{ output.page_doc_link }}}</div>-->
+<!--                {{/ output.page_doc_link }}-->
+
+<!--                {{# output.services_support_link }}-->
+<!--                    <div>{{{ output.services_support_link }}}</div>-->
+<!--                {{/ output.services_support_link }}-->
+<!--            </div>-->
+<!--        {{/ output.has_popover_links }}-->
+<!--        <div class="footer-section p-3">-->
+<!--            <div>{{#str}}poweredbymoodle, core{{/str}}</div>-->
+<!--            {{#output.moodle_release}}-->
+<!--                <div>-->
+<!--                    {{#str}}version, core{{/str}} {{{ output.moodle_release }}}-->
+<!--                </div>-->
+<!--            {{/output.moodle_release}}-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="copyright">-->
+<!--        <div class="madeby">-->
+<!--            <p>{{#str}}themedevelopedby, theme_moove{{/str}}</p>-->
+<!--            <a href="https://conecti.me">-->
+<!--                <img src="{{config.wwwroot}}/theme/moove/pix/logo_conectime.svg" alt="Conecti.me" style="height: 40px;">-->
+<!--            </a>-->
+<!--        </div>-->
+<!--    </div>-->
+</footer>
+
+{{{ output.standard_end_of_body_html }}}
+
+{{#js}}
+    require(['theme_boost/footer-popover'], function(FooterPopover) {
+        FooterPopover.init();
+    });
+
+<!--    Matomo-->
+    {{#unicaf_uuid}}
+
+        function load_matomo_tag_manager(c){
+        var _mtm = window._mtm = window._mtm || [];
+        var preloadScript = document.createElement('link');
+        var u="https://matomo.unicaf.org/";
+        preloadScript.rel = "preload";
+        preloadScript.href = u+"js/container_"+c+".js";
+        preloadScript.as = "script";
+        preloadScript.id = "matomo-tag-manager";
+        preloadScript.onload = function(){
+        _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+        var d=document, g=d.createElement('script'), s=d.getElementById('matomo-tag-manager');
+        g.type='text/javascript'; g.async=true; g.src=u+'js/container_'+c+'.js'; s.parentNode.insertBefore(g,s);
+        }
+        document.head.appendChild(preloadScript);
+        }
+
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'uid': '{{unicaf_uuid}}' });
+        _mtm.push({'siteId': '{{siteId}}' });
+        load_matomo_tag_manager('{{container}}');
+
+    {{/unicaf_uuid}}
+    {{^unicaf_uuid}}
+
+    {{/unicaf_uuid}}
+{{/js}}
