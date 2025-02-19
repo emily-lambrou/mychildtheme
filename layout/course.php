@@ -140,5 +140,5 @@ $templatecontext = [
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer());
 
-
 echo $OUTPUT->render_from_template('theme_mychildtheme/course', $templatecontext);
+
