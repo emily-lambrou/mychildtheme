@@ -126,3 +126,4 @@ $templatecontext = array_merge($templatecontext, $themesettings->footer());
 
 
 echo $OUTPUT->render_from_template('theme_mychildtheme/incourse', $templatecontext);
+
