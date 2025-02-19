@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Frontpage layout for the moove theme.
+ * A drawer based layout for the moove theme.
  *
  * @package    theme_moove
  * @copyright  2022 Willian Mano {@link https://conecti.me}
@@ -27,14 +27,16 @@ defined('MOODLE_INTERNAL') || die();
 require_once($CFG->libdir . '/behat/lib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 
-
-
 // Add block button in editing mode.
 $addblockbutton = $OUTPUT->addblockbutton();
+
+
 
 user_preference_allow_ajax_update('drawer-open-nav', PARAM_ALPHA);
 user_preference_allow_ajax_update('drawer-open-index', PARAM_BOOL);
 user_preference_allow_ajax_update('drawer-open-block', PARAM_BOOL);
+
+
 
 if (isloggedin()) {
     $courseindexopen = (get_user_preferences('drawer-open-index', true) == true);
@@ -58,7 +60,15 @@ $hasblocks = (strpos($blockshtml, 'data-block=') !== false || !empty($addblockbu
 if (!$hasblocks) {
     $blockdraweropen = false;
 }
-$courseindex = core_course_drawer();
+
+$themesettings = new \theme_mychildtheme\util\settings();
+
+if (!$themesettings->enablecourseindex) {
+    $courseindex = '';
+} else {
+    $courseindex = core_course_drawer();
+}
+
 if (!$courseindex) {
     $courseindexopen = false;
 }
@@ -82,19 +92,19 @@ if ($PAGE->has_secondary_navigation()) {
         $overflow = $overflowdata->export_for_template($OUTPUT);
     }
 }
-
 $primary = new core\navigation\output\primary($PAGE);
 $renderer = $PAGE->get_renderer('core');
 $primarymenu = $primary->export_for_template($renderer);
 $buildregionmainsettings = !$PAGE->include_region_main_settings_in_header_actions() && !$PAGE->has_secondary_navigation();
+
 // If the settings menu will be included in the header then don't add it here.
 $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settings_menu() : false;
 
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
-$bodyattributes = $OUTPUT->body_attributes($extraclasses);
 
+$bodyattributes = $OUTPUT->body_attributes($extraclasses);
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
@@ -114,22 +124,15 @@ $templatecontext = [
     'hasregionmainsettingsmenu' => !empty($regionmainsettingsmenu),
     'overflow' => $overflow,
     'headercontent' => $headercontent,
-    'addblockbutton' => $addblockbutton
+    'addblockbutton' => $addblockbutton,
+    'enablecourseindex' => $themesettings->enablecourseindex
 ];
 
-$themesettings = new \theme_mychildtheme\util\settings();
-
-$templatecontext = array_merge($templatecontext, $themesettings->footer());
-
-if (isloggedin()) {
-    echo $OUTPUT->render_from_template('theme_mychildtheme/drawers', $templatecontext);
-} else {
-    $templatecontext = array_merge($templatecontext, $themesettings->frontpage());
-
-    echo $OUTPUT->render_from_template('theme_mychildtheme/frontpage', $templatecontext);
-}
-
 $templatecontext = array_merge($templatecontext, $themesettings->footer());
 
 
-echo $OUTPUT->render_from_template('theme_mychildtheme/frontpage', $templatecontext);
+// Include FontAwesome
+echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">';
+
+
+echo $OUTPUT->render_from_template('theme_mychildtheme/drawers', $templatecontext);
