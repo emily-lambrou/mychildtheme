@@ -51,29 +51,29 @@ $templatecontext = [
     'bodyattributes' => $bodyattributes,
     'todays_quote' => $json_quotes[$starting_day] ?? $json_quotes[10],
     'address' => get_string('address', 'theme_mychildtheme'),
-	'telephone' => get_string('telephone', 'theme_mychildtheme'),
-	'email' => get_string('email', 'theme_mychildtheme'),
-	'termsofuse' => get_string('termsofuse', 'theme_mychildtheme'),
-	'termsofusemsg' => get_string('termsofusemsg', 'theme_mychildtheme'),
-	'allrightsreserved' => get_string('allrightsreserved', 'theme_mychildtheme'),
-	'termsofusemsg' => get_string('termsofusemsg', 'theme_mychildtheme'),
-	'contact' => get_string('contact', 'theme_mychildtheme'),
-	'studentpanel' => get_string('studentpanel', 'theme_mychildtheme'),
-	'mainwebsite' => get_string('mainwebsite', 'theme_mychildtheme'),
-	'footershortwelcomemessage' => get_string('footershortwelcomemessage', 'theme_mychildtheme',$SITE->fullname),
-	'footerlogoimage' => $OUTPUT->image_url('footerlogoimage', 'theme_mychildtheme'),
+    'telephone' => get_string('telephone', 'theme_mychildtheme'),
+    'email' => get_string('email', 'theme_mychildtheme'),
+    'termsofuse' => get_string('termsofuse', 'theme_mychildtheme'),
+    'termsofusemsg' => get_string('termsofusemsg', 'theme_mychildtheme'),
+    'allrightsreserved' => get_string('allrightsreserved', 'theme_mychildtheme'),
+    'termsofusemsg' => get_string('termsofusemsg', 'theme_mychildtheme'),
+    'contact' => get_string('contact', 'theme_mychildtheme'),
+    'studentpanel' => get_string('studentpanel', 'theme_mychildtheme'),
+    'mainwebsite' => get_string('mainwebsite', 'theme_mychildtheme'),
+    'footershortwelcomemessage' => get_string('footershortwelcomemessage', 'theme_mychildtheme',$SITE->fullname),
+    'footerlogoimage' => $OUTPUT->image_url('footerlogoimage', 'theme_mychildtheme'),
     //'login-background' => $OUTPUT->image_url('login-background', 'theme_moove'),
     'default-footer-logo' => $OUTPUT->image_url('default-footer-logo', 'theme_mychildtheme'),
     'default-logo' => $OUTPUT->image_url('default-logo', 'theme_mychildtheme'),
-	'links' => get_string('links', 'theme_mychildtheme'),
-	'year' => date("Y"),
-	'univname' => get_config("theme_mychildtheme","univname"),
-	'univmainwebsite' => get_config("theme_mychildtheme","univmainwebsite"),
-	'univstudentpanel' => get_config("theme_mychildtheme","univstudentpanel"),
-	'univaddress' => get_config("theme_mychildtheme","univaddress"),
-	'univtelephone' => get_config("theme_mychildtheme","univtelephone"),
-	'univemail' => get_config("theme_mychildtheme","univemail"),
-	'particlesconfig' => $particlesconfig,
+    'links' => get_string('links', 'theme_mychildtheme'),
+    'year' => date("Y"),
+    'univname' => get_config("theme_mychildtheme","univname"),
+    'univmainwebsite' => get_config("theme_mychildtheme","univmainwebsite"),
+    'univstudentpanel' => get_config("theme_mychildtheme","univstudentpanel"),
+    'univaddress' => get_config("theme_mychildtheme","univaddress"),
+    'univtelephone' => get_config("theme_mychildtheme","univtelephone"),
+    'univemail' => get_config("theme_mychildtheme","univemail"),
+    'particlesconfig' => $particlesconfig,
 ];
 
 
@@ -84,4 +84,10 @@ if ($this->page->pagetype == 'login-signup') {
 $PAGE->requires->js_call_amd('theme_mychildtheme/login', 'init');
 //$PAGE->requires->js_call_amd('theme_moove/particles', 'init');
 
+
+// Include FontAwesome
+// echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">';
+
+
 echo $OUTPUT->render_from_template('theme_mychildtheme/login', $templatecontext);
+
