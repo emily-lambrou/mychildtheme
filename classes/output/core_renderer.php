@@ -643,10 +643,3 @@ class core_renderer extends \theme_boost\output\core_renderer
 }
 
 
-
-
-
-
-
-
-
