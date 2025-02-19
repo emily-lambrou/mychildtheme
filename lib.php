@@ -63,6 +63,7 @@ function theme_mychildtheme_get_logo() {
 
     return $logoimgurl;
 }
+
 function theme_mychildtheme_get_main_scss_content($theme) {
     global $CFG;
 
@@ -167,7 +168,7 @@ function theme_mychildtheme_get_pre_scss($theme) {
 function theme_mychildtheme_get_precompiled_css() {
     global $CFG;
 
-    return file_get_contents($CFG->dirroot . '/theme/mychildtheme/style/moodle.css');
+    return file_get_contents($CFG->dirroot . '/theme/moove/style/moodle.css');
 }
 
 /**
