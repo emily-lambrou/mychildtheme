@@ -88,8 +88,12 @@ $templatecontext = [
     'userdescription' => format_text($user->description, $user->descriptionformat, ['overflowdiv' => true])
 ];
 
+
 $themesettings = new \theme_mychildtheme\util\settings();
 
 $templatecontext = array_merge($templatecontext, $themesettings->footer());
+
+echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">';
+
 
 echo $OUTPUT->render_from_template('theme_mychildtheme/mypublic', $templatecontext);
