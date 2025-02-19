@@ -28,7 +28,7 @@ use html_writer;
 use coursecat_helper;
 use stdClass;
 use core_course_list_element;
-use theme_mychildtheme\util\course;
+use theme_moove\util\course;
 
 /**
  * Renderers to align Moove's course elements to what is expect
@@ -101,7 +101,7 @@ class course_renderer extends \core_course_renderer {
             // There are more than one page of results and we are in 'view all' mode, suggest to go back to paginated view mode.
             $pagingbar = html_writer::tag('div',
                 html_writer::link($paginationurl->out(false, array('perpage' => $CFG->coursesperpage)),
-                get_string('showperpage', '', $CFG->coursesperpage)), array('class' => 'paging paging-showperpage'));
+                    get_string('showperpage', '', $CFG->coursesperpage)), array('class' => 'paging paging-showperpage'));
         }
 
         // Display list of courses.
