@@ -136,3 +136,4 @@ echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-a
 
 
 echo $OUTPUT->render_from_template('theme_mychildtheme/drawers', $templatecontext);
+
