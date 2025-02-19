@@ -418,5 +418,3 @@ if ($ADMIN->fulltree) {
     $settings->add($page);
 }
 
-
-
